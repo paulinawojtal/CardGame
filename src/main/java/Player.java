@@ -1,34 +1,15 @@
-import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
+public interface Player {
 
-    private String name;
-    private List<Card> playerCards;
+    List<Card> getPlayerCards();
 
-    public Player(String name){
-        this.name = name;
-        playerCards = new ArrayList<>();
-    }
+    void addCard(Card card);
 
-    public List<Card> getPlayerCards() {
-        return playerCards;
-    }
+    void removeCard(Card card);
 
-    public void addCard(Card card){
-        playerCards.add(card);
-    }
+    int getSize();
 
-    public void removeCard(Card card){
-        playerCards.remove(card);
-    }
+    void findPair();
 
-    public int getSize(){
-        return playerCards.size();
-    }
-
-    @Override
-    public String toString() {
-        return "" + name + ", size:" + getSize();
-    }
 }

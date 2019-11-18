@@ -1,0 +1,14 @@
+OneRoundOfGame.class
+OneDeal.class
+Players.class
+Player.class
+CardFigure.class
+FindPairOfCards.class
+CardColor.class
+AppStarter.class
+DeckOfCards.class
+RemovePairOfCards.class
+PrintPlayerCards.class
+PrintDeckOfCards.class
+Card.class
+Game.class

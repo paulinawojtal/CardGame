@@ -1,15 +1,15 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-public class OneRoundOfGame {
+public class __OneRoundOfGame {
 
+    /*
     public boolean playOneRound(Players players){
-        RemovePairOfCards remove = new RemovePairOfCards();
+        __RemovePairOfCards remove = new __RemovePairOfCards();
 
-        List<Player> toRemove = new ArrayList<>();
+        List<HumanPlayer> toRemove = new ArrayList<>();
 
-        for(Player p : players.getPlayers()){
+        for(HumanPlayer p : players.getHumanPlayers()){
             boolean removeIsPossible = remove.removePair(p);
 
             if(removeIsPossible && p.getSize() == 0){
@@ -26,5 +26,7 @@ public class OneRoundOfGame {
         players.removeAll(toRemove);
         return false;
     }
+
+     */
 
 }

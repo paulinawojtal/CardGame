@@ -1,12 +1,20 @@
 import java.util.Objects;
 
-public class Card {
+public abstract class Card {
 
     private CardColor color;
     private CardFigure figure;
 
     public Card(CardColor color, CardFigure figure) {
         this.color = color;
+        this.figure = figure;
+    }
+
+    protected void setColor(CardColor color) {
+        this.color = color;
+    }
+
+    protected void setFigure(CardFigure figure) {
         this.figure = figure;
     }
 

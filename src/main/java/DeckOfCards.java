@@ -6,41 +6,46 @@ public class DeckOfCards {
 
     private List<Card> deckOfCards;
 
-    public DeckOfCards() {
-        deckOfCards = new ArrayList<Card>();
+    DeckOfCards() {
+        deckOfCards = new ArrayList<>();
     }
 
-    public List<Card> getDeckOfCards() {
+    List<Card> getDeckOfCards() {
         return deckOfCards;
     }
 
-    public void createDeck(){
-        for(CardColor c : CardColor.values()){
-            for(CardFigure f : CardFigure.values()){
-                if(c != CardColor.OWN){
-                    if(f != CardFigure.WITCH){
-                        Card card = new Card(c, f);
-                        deckOfCards.add(card);
+    void createStandardDeck(int n){
+
+        for(int i=1; i<=n; i++) {
+            for (CardColor c : CardColor.values()) {
+                for (CardFigure f : CardFigure.values()) {
+                    if (c != CardColor.OWN) {
+                        if (f != CardFigure.WITCH) {
+                            Card card = new StandardCard(c, f);
+                            deckOfCards.add(card);
+                        }
                     }
                 }
             }
         }
-        deckOfCards.add(new Card(CardColor.OWN, CardFigure.WITCH));
+
+    }
+
+    void addWitchCard(int n){
+        for(int i=1; i<=n; i++){
+            deckOfCards.add(new WitchCard());
+        }
     }
 
     public int getSize(){
         return deckOfCards.size();
     }
 
-    public void removeCardFromDeck(Card card){
+    void removeCardFromDeck(Card card){
         deckOfCards.remove(card);
     }
 
-    public void shuffleDeck(){
-        Collections.shuffle(deckOfCards);
-    }
-
-    public boolean deckIsEmpty(){
+    boolean deckIsEmpty(){
         return deckOfCards.isEmpty();
     }
 

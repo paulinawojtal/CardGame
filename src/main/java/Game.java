@@ -1,63 +1,41 @@
 public class Game {
 
-    public void playGame(){
+    public void playGame(Players players){
+        players.forEach(Player::findPair);
+    }
+
+    void play(){
         DeckOfCards deck = new DeckOfCards();
-        // tworzenie talii
-        deck.createDeck();
-        System.out.println(deck.getSize());
+        deck.createStandardDeck(1);
+        deck.addWitchCard(1);
 
-        // wyświetlanie talii
-        PrintDeckOfCards printDeck = new PrintDeckOfCards();
-        printDeck.printDeck(deck);
+        Printer print = new Printer();
+        print.printDeck(deck);
 
-        // tworzenie poszczególnych playerów
-        Player janek = new Player("Janek");
-        Player marian = new Player("Marian");
-        Player franek = new Player("Franek");
-        Player bolek = new Player("Bolek");
-        Player muniek = new Player("Zygmunt");
+        Player janek = new HumanPlayer("Janek");
+        Player marian = new HumanPlayer("Marian");
+        Player franek = new HumanPlayer("Franek");
+        Player bolek = new HumanPlayer("Bolek");
 
-        // dodanie playerów do listy playerów
         Players players = new Players();
         players.addPlayer(janek);
         players.addPlayer(marian);
         players.addPlayer(franek);
         players.addPlayer(bolek);
-        //players.addPlayer(muniek);
 
-        // rozdanie kart
-        deck.shuffleDeck();
-        System.out.println("=== Deck po Shuffle ===");
-        printDeck.printDeck(deck);
-        OneDeal oneDeal = new OneDeal();
-
-        while(deck.getSize() != 0){
-            oneDeal.makeDeal(deck, players);
-        }
+        CardDealer cardDealer = new CardDealer();
+        cardDealer.shuffleDeck(deck);
+        cardDealer.dealOfCards(players, deck);
         System.out.println(deck.getSize());
 
-        PrintPlayerCards printPlayerCards = new PrintPlayerCards();
-        for(Player p : players.getPlayers()){
-            printPlayerCards.printPlayerCards(p);
-        }
+        print.printPlayer(janek);
+        print.printPlayer(marian);
+        print.printPlayer(franek);
+        print.printPlayer(bolek);
 
-        OneRoundOfGame oneRoundOfGame = new OneRoundOfGame();
-        oneRoundOfGame.playOneRound(players);
+        System.out.println();
 
-        for(Player p : players.getPlayers()){
-            printPlayerCards.printPlayerCards(p);
-        }
-        /*
-        boolean nextRound;
+        playGame(players);
 
-        do{
-            nextRound = oneRoundOfGame.playOneRound(players);
-        }while(!nextRound);
-
-        for(Player p : players.getPlayers()){
-            printPlayerCards.printPlayerCards(p);
-        }
-
-         */
     }
 }
