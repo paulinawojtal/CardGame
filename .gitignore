@@ -1,7 +1,4 @@
-grawkarty.iml
+﻿grawkarty.iml
 .idea/
-src/main/java/__OneDeal.java
-src/main/java/__FindPairOfCards.java
-src/main/java/__Game.java
-src/main/java/__OneRoundOfGame.java
-src/main/java/__RemovePairOfCards.java
+target/
+src/main/java/niepotrzebne
